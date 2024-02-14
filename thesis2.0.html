@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Dashboard</title>
+    <link rel="stylesheet" href="theis2.0.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <!-- Include Leaflet library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="thesis2.0.js"></script>
+    
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="menu">
+            <li>
+                <a href="#home" onclick="showContent('homeContent')">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#rainfallAnalyzer" onclick="showContent('rainfallAnalyzerContent')">
+                    <i class="fas fa-cloud-showers-heavy"></i>
+                    <span>Rainfall Analyzer</span>
+                </a>
+            </li>
+            <li>
+                <a href="#history" onclick="showContent('historyContent')">
+                    <i class="fas fa-history"></i>
+                    <span>History Data</span>
+                </a>
+            </li>
+            <li>
+                <a href="#graphHistory" onclick="showContent('graphHistoryContent')">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Graph History</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Home Section -->
+    <section id="homeContent">
+        <h1>Welcome to the Rainfall Dashboard</h1>
+        <p>This website provides information and analysis of rainfall data. Explore the "Rainfall Analyzer" to input and analyze real-time rainfall data. Check the "History Rainfall Data" to view previously recorded information.</p>
+    </section>
+
+    <!-- Rainfall Analyzer Section -->
+    <section id="rainfallAnalyzerContent" class="hidden">
+        <h2>Rainfall Analyzer</h2>
+        <div>
+            <label for="rainfallInput">Enter Rainfall (mm): </label>
+            <input type="number" id="rainfallInput">
+            <label for="municipalityInput">Enter Municipality: </label>
+            <input type="text" id="municipalityInput">
+            <button onclick="addRainfall()">Add Data</button>
+            <button id="removeLastDataButton" onclick="removeLastData()">Remove Last Data</button>
+        <!-- Color bar representing rainfall categories -->
+        <div id="colorBar"></div>
+        
+        <!-- Text indicating rainfall categories below the color bar -->
+        <div id="colorBarText">
+            <span>No Rain</span>
+            <span>Weak Rain</span>
+            <span>Moderate Rain</span>
+            <span>Heavy Rain</span>
+            <span>Shower</span>
+            <span>Cloud Burst</span>
+        </div>
+        
+        <!-- Add this HTML below the color bar and text -->
+        <div id="parameterLegend">
+        <div class="legend-item" style="background-color: green;">less than 0.5</div>
+        <div class="legend-item" style="background-color: yellow;">0.5 - 2 </div>
+        <div class="legend-item" style="background-color: orange;">2 - 6 </div>
+        <div class="legend-item" style="background-color: red;">10 - 18 </div>
+        <div class="legend-item" style="background-color: purple;">18 - 30 </div>
+        <div class="legend-item" style="background-color: blue;">up to 30 </div>
+        </div>
+
+        </div>
+
+        <div id="chartContainer">
+            <!-- Chart will be displayed here -->
+            <canvas id="rainfallChart" class="hidden"></canvas>
+        </div>
+
+        <!-- Save Graph button with onclick handler -->
+        <button id="saveGraphButton" onclick="saveGraph()">Save Graph</button>
+    </section>
+
+    <!-- Graph History Section -->
+    <section id="graphHistoryContent" class="hidden">
+        <h2>Graph History</h2>
+        <label for="graphHistoryDateSelector">Select Date: </label>
+        <input type="date" id="graphHistoryDateSelector" onchange="loadGraphHistory()">
+        <div id="graphHistoryContainer"></div>
+    </section>
+
+    <!-- History Rainfall Data Section -->
+    <section id="historyContent" class="hidden">
+        <h2>History Rainfall Data</h2>
+        <!-- Add date selector input -->
+        <label for="dateSelector">Select Date: </label>
+        <input type="date" id="dateSelectorHistory" onchange="updateHistory()">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Rainfall Data (mm)</th>
+                    <th>Municipality</th>
+                    <th>Intensity</th>
+                </tr>
+            </thead>
+            <tbody id="historyTable"></tbody>
+        </table>
+    </section>
+    <!-- Clock and Date Display -->
+    <div id="clockDate"></div>
+    
+</body>
+</html>
