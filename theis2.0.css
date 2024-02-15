@@ -1,5 +1,5 @@
-@media only screen and (max-width: 600px) {
-   body {
+/* Common styles for all screens */
+body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #ecf0f1;
@@ -25,10 +25,12 @@ nav {
     background: rgba(52, 152, 219, 1);
     white-space: nowrap;
 }
+
 nav:hover {
     width: 240px;
     transition: 0.5s;
 }
+
 nav ul {
     height: 88%;
     position: relative;
@@ -42,6 +44,7 @@ nav li {
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
 }
+
 nav li:hover {
     background: #e0e0e058;
 }
@@ -63,19 +66,10 @@ nav a i {
     overflow: hidden;
 }
 
-.hidden {
-    display: none;
-}
-
 section {
     margin-top: 20px;
     flex: 1;
     padding: 20px;
-}
-
-#chartContainer {
-    width: 80%;
-    margin: 20px auto;
 }
 
 table {
@@ -89,14 +83,15 @@ th,
 td {
     border: 1px solid #3498db;
 }
+
 /* Styles for Rainfall Analyzer Section */
 #rainfallAnalyzerContent {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
     margin: 0 auto;
+    max-width: 600px; /* Adjust as needed */
 }
 
 #rainfallAnalyzerContent label {
@@ -116,51 +111,20 @@ td {
     box-sizing: border-box;
 }
 
-#rainfallAnalyzerContent button {
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#rainfallAnalyzerContent button:hover {
-    background-color: #2980b9;
-}
-
-#saveGraphButton {
-    margin-top: 15px;
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #27ae60;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#saveGraphButton:hover {
-    background-color: #219653;
-}
-
+#rainfallAnalyzerContent button,
+#saveGraphButton,
 #removeLastDataButton {
-    margin-top: 15px;
+    width: 100%;
     padding: 12px 24px;
     font-size: 16px;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    box-sizing: border-box;
+    margin-top: 15px;
 }
 
+#rainfallAnalyzerContent button:hover,
+#saveGraphButton:hover,
 #removeLastDataButton:hover {
-    background-color: #c0392b;
+    background-color: #2980b9;
 }
 
 /* Styles for Graph History Section */
@@ -169,8 +133,8 @@ td {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
     margin: 0 auto;
+    max-width: 600px; /* Adjust as needed */
 }
 
 #graphHistoryContent img {
@@ -191,7 +155,7 @@ td {
 #historyContent td {
     border: 1px solid #3498db;
     padding: 12px;
-    text-align: left;
+    text-align: center;
 }
 
 #historyContent th {
@@ -207,21 +171,11 @@ td {
 }
 
 /* Additional styles for the date selector */
-#dateSelectorHistory {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #3498db;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
-
-#dateSelectorHistory:hover {
-    border-color: #2980b9;
-}
-
-/* Additional styles for the date selector in Graph History */
+#dateSelectorHistory,
 #graphHistoryDateSelector {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #3498db;
@@ -230,6 +184,7 @@ td {
     box-sizing: border-box;
 }
 
+#dateSelectorHistory:hover,
 #graphHistoryDateSelector:hover {
     border-color: #2980b9;
 }
@@ -238,27 +193,16 @@ td {
 .graph-history-item {
     margin-bottom: 20px;
 }
-#chartContainer {
-    position: relative;
-}
 
-#chartContainer {
-    position: relative;
-}
-
-#colorBarTextBelowChart {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Styles for the color bar and legend */
+#colorBar,
+#colorBarText {
+    width: 100%;
+    margin: 0 auto;
 }
 
 #colorBar {
     height: 20px;
-    width: 80%;
     background: linear-gradient(to right, 
     green 0%, green 16.6%,
     yellow 16.6%, yellow 33.3%,
@@ -267,77 +211,27 @@ td {
     purple 66.6%, purple 83.3%,
     blue 83.3%, blue 100%
     );
-    margin: 0 auto;
-    margin-top: 10px;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 #colorBarText {
     display: flex;
-    width: 80%;
-    margin: 0 auto; /* Center horizontally */
-    margin-top: -15px; /* Adjust this value to align the text exactly with the color bar */
-    background: linear-gradient(to right, 
-    green 0%, green 16.6%,
-    yellow 16.6%, yellow 33.3%,
-    orange 33.3%, orange 50%,
-    red 50%, red 66.6%,
-    purple 66.6%, purple 83.3%,
-    blue 83.3%, blue 100%
-    );
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
 }
 
 #colorBarText span {
-    display: flex;
     flex: 1;
-    justify-content: center;
     text-align: center;
     font-size: 10px;
-    color: #f3f3f3; /* Adjust the color as needed */
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black stroke */
-}
-#parameterLegend {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
+    color: #f3f3f3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.legend-item {
-    flex: 1;
-    text-align: center;
-    font-size: 9px;
-    padding: 5px;
-    margin-top: 1px;
-    color: #000 !important; /* Add !important to ensure it overrides other styles */
-    background: none !important; /* Add !important to ensure it overrides other styles */
-}
-/* Add styles for each rainfall category */
-.no-rain {
-    background-color: green;
-}
-
-.weak-rain {
-    background-color: yellow;
-}
-
-.moderate-rain {
-    background-color: orange;
-}
-
-.heavy-rain {
-    background-color: red;
-}
-
-.shower {
-    background-color: purple;
-}
-
-.cloud-burst {
-    background-color: blue;
-}
-
-/* Add styles for the alert container */
+/* Styles for the alert container */
 .alert-container {
     position: fixed;
     top: 10px;
@@ -348,35 +242,36 @@ td {
     border-radius: 5px;
 }
 
-/* Adjust individual styles based on your preference */
-.no-rain.alert-container {
-    background-color: green;
+/* Additional media query for screens with a maximum width of 600px */
+@media only screen and (max-width: 600px) {
+    nav {
+        width: 100%;
+        padding: 0;
+    }
+
+    nav:hover {
+        width: 100%;
+    }
+
+    nav li {
+        margin: 0;
+    }
+
+    nav a {
+        gap: 1rem;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    /* Additional styles for better responsiveness on smaller screens */
+    #rainfallAnalyzerContent,
+    #graphHistoryContent {
+        max-width: 100%;
+    }
 }
-
-.weak-rain.alert-container {
-    background-color: yellow;
-}
-
-.moderate-rain.alert-container {
-    background-color: orange;
-}
-
-.heavy-rain.alert-container {
-    background-color: red;
-}
-
-.shower.alert-container {
-    background-color: purple;
-}
-
-.cloud-burst.alert-container {
-    background-color: blue;
-}
-}
-
-
-
-
-
-
-
