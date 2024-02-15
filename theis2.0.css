@@ -253,25 +253,26 @@ td {
         width: 100%;
     }
 
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
     nav li {
         margin: 0;
     }
 
-    nav a {
-        gap: 1rem;
+    .menu a span {
+        display: none;
     }
 
-    section {
-        padding: 10px;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    /* Additional styles for better responsiveness on smaller screens */
     #rainfallAnalyzerContent,
     #graphHistoryContent {
         max-width: 100%;
+    }
+
+    #dateSelectorHistory,
+    #graphHistoryDateSelector {
+        width: calc(100% - 20px);
     }
 }
