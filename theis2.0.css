@@ -1,4 +1,5 @@
-body {
+@media only screen and (max-width: 600px) {
+   body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #ecf0f1;
@@ -371,6 +372,8 @@ td {
 .cloud-burst.alert-container {
     background-color: blue;
 }
+}
+
 
 
 
